@@ -34,16 +34,14 @@ class WebhookRetry(object):
             '_links': 'dict(String, HalLink)',
             '_embedded': 'dict',
             'id': 'str',
-            'time_stamp': 'DateTime',
-            'hook_id': 'str'
+            'timestamp': 'DateTime'
         }
 
         self.attribute_map = {
             '_links': '_links',
             '_embedded': '_embedded',
             'id': 'id',
-            'time_stamp': 'timeStamp',
-            'hook_id': 'hookId'
+            'timestamp': 'timestamp'
         }
         
         
@@ -56,10 +54,7 @@ class WebhookRetry(object):
         self.id = None  # str
         
         
-        self.time_stamp = None  # DateTime
-        
-        
-        self.hook_id = None  # str
+        self.timestamp = None  # DateTime
         
 
     def __repr__(self):

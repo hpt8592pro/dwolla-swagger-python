@@ -23,6 +23,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import urllib
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -321,6 +322,116 @@ class FundingsourcesApi(object):
                                             response='FundingSource', auth_settings=self.auth_settings)
         
         return response
+        
+    def verify_micro_deposits_exist(self, id, **kwargs):
+        """
+        Verify pending verifications exist.
+        
+
+        :param str id: Funding source ID to check for pending validation deposits for. (required)
+        
+        :return: None
+        """
+        
+        # verify the required parameter 'id' is set
+        if id is None:
+            raise ValueError("Missing the required parameter `id` when calling `verify_micro_deposits_exist`")
+        
+        all_params = ['id']
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError("Got an unexpected keyword argument '%s' to method verify_micro_deposits_exist" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resource_path = '/funding-sources/{id}/micro-deposits'.replace('{format}', 'json')
+        method = 'GET'
+
+        path_params = {}
+        
+        if 'id' in params:
+            path_params['id'] = params['id']  
+        
+        query_params = {}
+        
+        header_params = {}
+        
+        form_params = {}
+        files = {}
+        
+        body_params = None
+        
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(['application/vnd.dwolla.v1.hal+json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type([])
+
+
+        response = self.api_client.call_api(resource_path, method, path_params, query_params, header_params,
+                                            body=body_params, post_params=form_params, files=files,
+                                            response=None, auth_settings=self.auth_settings)
+        
+    def micro_deposits(self, id, **kwargs):
+        """
+        Initiate or verify micro deposits for bank verification.
+        
+
+        :param VerifyMicroDepositsRequest body: Optional micro deposit amounts for verification 
+        :param str id: Funding source ID to initiate or verify micro deposits for. (required)
+        
+        :return: None
+        """
+        
+        # verify the required parameter 'id' is set
+        if id is None:
+            raise ValueError("Missing the required parameter `id` when calling `micro_deposits`")
+        
+        all_params = ['body', 'id']
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError("Got an unexpected keyword argument '%s' to method micro_deposits" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resource_path = '/funding-sources/{id}/micro-deposits'.replace('{format}', 'json')
+        method = 'POST'
+
+        path_params = {}
+        
+        if 'id' in params:
+            path_params['id'] = params['id']  
+        
+        query_params = {}
+        
+        header_params = {}
+        
+        form_params = {}
+        files = {}
+        
+        body_params = None
+        
+        if 'body' in params:
+            body_params = params['body']
+        
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(['application/vnd.dwolla.v1.hal+json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type([])
+
+
+        response = self.api_client.call_api(resource_path, method, path_params, query_params, header_params,
+                                            body=body_params, post_params=form_params, files=files,
+                                            response=None, auth_settings=self.auth_settings)
         
 
 

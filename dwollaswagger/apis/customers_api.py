@@ -23,6 +23,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import urllib
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -188,6 +189,65 @@ class CustomersApi(object):
         files = {}
         
         body_params = None
+        
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(['application/vnd.dwolla.v1.hal+json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(['application/vnd.dwolla.v1.hal+json'])
+
+
+        response = self.api_client.call_api(resource_path, method, path_params, query_params, header_params,
+                                            body=body_params, post_params=form_params, files=files,
+                                            response='Customer', auth_settings=self.auth_settings)
+        
+        return response
+        
+    def update_customer(self, id, **kwargs):
+        """
+        Update customer record. Personal customer records are re-verified upon update.
+        
+
+        :param UpdateCustomer body: Customer to update. 
+        :param str id: Id of customer to update. (required)
+        
+        :return: Customer
+        """
+        
+        # verify the required parameter 'id' is set
+        if id is None:
+            raise ValueError("Missing the required parameter `id` when calling `update_customer`")
+        
+        all_params = ['body', 'id']
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError("Got an unexpected keyword argument '%s' to method update_customer" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resource_path = '/customers/{id}'.replace('{format}', 'json')
+        method = 'POST'
+
+        path_params = {}
+        
+        if 'id' in params:
+            path_params['id'] = params['id']  
+        
+        query_params = {}
+        
+        header_params = {}
+        
+        form_params = {}
+        files = {}
+        
+        body_params = None
+        
+        if 'body' in params:
+            body_params = params['body']
         
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(['application/vnd.dwolla.v1.hal+json'])

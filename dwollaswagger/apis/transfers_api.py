@@ -23,6 +23,7 @@ from __future__ import absolute_import
 
 import sys
 import os
+import urllib
 
 # python 2 and python 3 compatibility library
 from six import iteritems
@@ -43,6 +44,69 @@ class TransfersApi(object):
         self.auth_settings = ['oauth2']
     
     
+    def get_account_transfers(self, id, **kwargs):
+        """
+        Get an account's transfers.
+        
+
+        :param str id: Account UUID to get transfers for. (required)
+        :param int limit: How many results to return. 
+        :param int offset: How many results to skip. 
+        
+        :return: TransferListResponse
+        """
+        
+        # verify the required parameter 'id' is set
+        if id is None:
+            raise ValueError("Missing the required parameter `id` when calling `get_account_transfers`")
+        
+        all_params = ['id', 'limit', 'offset']
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError("Got an unexpected keyword argument '%s' to method get_account_transfers" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resource_path = '/accounts/{id}/transfers'.replace('{format}', 'json')
+        method = 'GET'
+
+        path_params = {}
+        
+        if 'id' in params:
+            path_params['id'] = params['id']  
+        
+        query_params = {}
+        
+        if 'limit' in params:
+            query_params['limit'] = params['limit']
+        
+        if 'offset' in params:
+            query_params['offset'] = params['offset']
+        
+        header_params = {}
+        
+        form_params = {}
+        files = {}
+        
+        body_params = None
+        
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(['application/vnd.dwolla.v1.hal+json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(['application/vnd.dwolla.v1.hal+json'])
+
+
+        response = self.api_client.call_api(resource_path, method, path_params, query_params, header_params,
+                                            body=body_params, post_params=form_params, files=files,
+                                            response='TransferListResponse', auth_settings=self.auth_settings)
+        
+        return response
+        
     def get_customer_transfers(self, id, **kwargs):
         """
         Get a customer's transfers.

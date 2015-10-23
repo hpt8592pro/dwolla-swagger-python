@@ -35,7 +35,6 @@ class ApplicationEvent(object):
             '_embedded': 'dict',
             'id': 'str',
             'created': 'DateTime',
-            'account_id': 'str',
             'topic': 'str',
             'resource_id': 'str'
         }
@@ -45,7 +44,6 @@ class ApplicationEvent(object):
             '_embedded': '_embedded',
             'id': 'id',
             'created': 'created',
-            'account_id': 'accountId',
             'topic': 'topic',
             'resource_id': 'resourceId'
         }
@@ -61,9 +59,6 @@ class ApplicationEvent(object):
         
         
         self.created = None  # DateTime
-        
-        
-        self.account_id = None  # str
         
         
         self.topic = None  # str
