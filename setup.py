@@ -18,7 +18,7 @@ setup(
     name="dwollaswagger",
     version="1.0.2",
     description="Dwolla API V2 client",
-    author="Swagger Contributors, David Stancu"
+    author="Swagger Contributors, David Stancu",
     author_email="david@dwolla.com",
     url="https://developers.dwolla.com",
     keywords=["Swagger", "Dwolla API"],
