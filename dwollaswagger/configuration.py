@@ -15,7 +15,7 @@ api_key_prefix = {}
 username = ''
 password = ''
 
-auth_token = ''
+access_token = ''
 
 def get_api_key_with_prefix(key):
     global api_key
@@ -38,7 +38,7 @@ def auth_settings():
                     'type': 'oauth2',
                     'in': 'header',
                     'key': 'Authorization',
-                    'value': 'Bearer ' + auth_token
+                    'value': 'Bearer ' + access_token
                 },
              
            }

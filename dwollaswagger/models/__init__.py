@@ -7,8 +7,10 @@ from .document_list_response import DocumentListResponse
 from .customer import Customer
 from .funding_source_list_response import FundingSourceListResponse
 from .customer_list_response import CustomerListResponse
+from .catalog_response import CatalogResponse
 from .transfer_list_response import TransferListResponse
 from .document import Document
+from .o_auth_response import OAuthResponse
 from .webhook_http_response import WebhookHttpResponse
 from .hal_link import HalLink
 from .money import Money
@@ -21,12 +23,15 @@ from .webhook_attempt import WebhookAttempt
 from .unit import Unit
 from .update_customer import UpdateCustomer
 from .webhook_http_request import WebhookHttpRequest
+from .verification_token import VerificationToken
 from .webhook_subscription import WebhookSubscription
 from .webhook_header import WebhookHeader
 from .amount import Amount
 from .application_event import ApplicationEvent
+from .business_classification_list_response import BusinessClassificationListResponse
 from .webhook_event_list_response import WebhookEventListResponse
 from .verify_micro_deposits_request import VerifyMicroDepositsRequest
+from .business_classification import BusinessClassification
 from .transfer import Transfer
 from .webhook import Webhook
 from .funding_source import FundingSource
