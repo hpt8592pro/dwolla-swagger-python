@@ -213,6 +213,57 @@ class FundingsourcesApi(object):
         
         return response
         
+    def create_funding_source(self, **kwargs):
+        """
+        Create a new funding source.
+        
+
+        :param CreateFundingSourceRequest body: Funding source to create. 
+        
+        :return: FundingSource
+        """
+        
+        all_params = ['body']
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError("Got an unexpected keyword argument '%s' to method create_funding_source" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resource_path = '/funding-sources'.replace('{format}', 'json')
+        method = 'POST'
+
+        path_params = {}
+        
+        query_params = {}
+        
+        header_params = {}
+        
+        form_params = {}
+        files = {}
+        
+        body_params = None
+        
+        if 'body' in params:
+            body_params = params['body']
+        
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(['application/vnd.dwolla.v1.hal+json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(['application/vnd.dwolla.v1.hal+json'])
+
+
+        response = self.api_client.call_api(resource_path, method, path_params, query_params, header_params,
+                                            body=body_params, post_params=form_params, files=files,
+                                            response='FundingSource', auth_settings=self.auth_settings)
+        
+        return response
+        
     def id(self, id, **kwargs):
         """
         Get a funding source by id.

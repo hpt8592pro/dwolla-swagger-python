@@ -98,7 +98,7 @@ class BusinessclassificationsApi(object):
 
         :param str id: Id of business classification to get. (required)
         
-        :return: Customer
+        :return: BusinessClassification
         """
         
         # verify the required parameter 'id' is set
@@ -142,7 +142,7 @@ class BusinessclassificationsApi(object):
 
         response = self.api_client.call_api(resource_path, method, path_params, query_params, header_params,
                                             body=body_params, post_params=form_params, files=files,
-                                            response='Customer', auth_settings=self.auth_settings)
+                                            response='BusinessClassification', auth_settings=self.auth_settings)
         
         return response
         

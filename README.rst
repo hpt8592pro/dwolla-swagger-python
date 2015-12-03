@@ -7,7 +7,7 @@ swagger-codegen <https://github.com/mach-kernel/swagger-codegen>`__.
 Version
 -------
 
-1.0.3
+1.0.5
 
 Installation
 ------------
@@ -210,6 +210,13 @@ files updated.
 
 Changelog
 ---------
+
+1.0.5 \* API schema error fixed, ``FundingSource`` object now has
+``_embedded`` key to fix serialization issues.
+
+1.0.4 \* API schema updated, ``CustomersApi`` has new endpoints for IAV
+verification. \* Existing ``Customer`` related models updated, new
+``VerificationToken`` model. \* (release skipped, features in 1.0.5)
 
 1.0.3 \* API schema updated, ``RootApi`` now added. \* Changed
 ``auth_token`` to ``access_token`` in compliance with

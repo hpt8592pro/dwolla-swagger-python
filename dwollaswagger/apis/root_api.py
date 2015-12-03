@@ -124,7 +124,7 @@ class RootApi(object):
         body_params = None
         
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(['application/json'])
+        header_params['Accept'] = self.api_client.select_header_accept(['application/vnd.dwolla.v1.hal+json'])
         if not header_params['Accept']:
             del header_params['Accept']
 

@@ -16,6 +16,8 @@ from .hal_link import HalLink
 from .money import Money
 from .transfer_request_body import TransferRequestBody
 from .webhook_retry import WebhookRetry
+from .account_o_auth_token import AccountOAuthToken
+from .customer_o_auth_token import CustomerOAuthToken
 from .webhook_retry_request_list_response import WebhookRetryRequestListResponse
 from .webhook_list_response import WebhookListResponse
 from .account_info import AccountInfo
@@ -23,7 +25,6 @@ from .webhook_attempt import WebhookAttempt
 from .unit import Unit
 from .update_customer import UpdateCustomer
 from .webhook_http_request import WebhookHttpRequest
-from .verification_token import VerificationToken
 from .webhook_subscription import WebhookSubscription
 from .webhook_header import WebhookHeader
 from .amount import Amount
@@ -34,6 +35,7 @@ from .verify_micro_deposits_request import VerifyMicroDepositsRequest
 from .business_classification import BusinessClassification
 from .transfer import Transfer
 from .webhook import Webhook
+from .iav_token import IavToken
 from .funding_source import FundingSource
 from .create_funding_source_request import CreateFundingSourceRequest
 from .create_customer import CreateCustomer

@@ -43,7 +43,13 @@ class CreateCustomer(object):
             'postal_code': 'str',
             'date_of_birth': 'str',
             'ssn': 'str',
-            'phone': 'str'
+            'phone': 'str',
+            'business_name': 'str',
+            'business_type': 'str',
+            'business_classification': 'str',
+            'ein': 'str',
+            'doing_business_as': 'str',
+            'website': 'str'
         }
 
         self.attribute_map = {
@@ -59,7 +65,13 @@ class CreateCustomer(object):
             'postal_code': 'postalCode',
             'date_of_birth': 'dateOfBirth',
             'ssn': 'ssn',
-            'phone': 'phone'
+            'phone': 'phone',
+            'business_name': 'businessName',
+            'business_type': 'businessType',
+            'business_classification': 'businessClassification',
+            'ein': 'ein',
+            'doing_business_as': 'doingBusinessAs',
+            'website': 'website'
         }
         
         
@@ -100,6 +112,24 @@ class CreateCustomer(object):
         
         
         self.phone = None  # str
+        
+        
+        self.business_name = None  # str
+        
+        
+        self.business_type = None  # str
+        
+        
+        self.business_classification = None  # str
+        
+        
+        self.ein = None  # str
+        
+        
+        self.doing_business_as = None  # str
+        
+        
+        self.website = None  # str
         
 
     def __repr__(self):

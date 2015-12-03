@@ -16,7 +16,7 @@ REQUIRES = ["urllib3 >= 1.10", "six >= 1.9", "certifi"]
 
 setup(
     name="dwollaswagger",
-    version="1.0.3",
+    version="1.0.5",
     description="Dwolla API V2 client",
     author="Swagger Contributors, David Stancu",
     author_email="david@dwolla.com",

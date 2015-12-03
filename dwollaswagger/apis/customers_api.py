@@ -366,31 +366,31 @@ class CustomersApi(object):
         
         return response
         
-    def get_customer_verification_token(self, id, **kwargs):
+    def create_funding_sources_token_for_customer(self, id, **kwargs):
         """
-        Get verification token for customer.
+        Create an OAuth token that is capable of adding a financial institution for the given customer.
         
 
         :param str id: ID of customer. (required)
         
-        :return: VerificationToken
+        :return: CustomerOAuthToken
         """
         
         # verify the required parameter 'id' is set
         if id is None:
-            raise ValueError("Missing the required parameter `id` when calling `get_customer_verification_token`")
+            raise ValueError("Missing the required parameter `id` when calling `create_funding_sources_token_for_customer`")
         
         all_params = ['id']
 
         params = locals()
         for key, val in iteritems(params['kwargs']):
             if key not in all_params:
-                raise TypeError("Got an unexpected keyword argument '%s' to method get_customer_verification_token" % key)
+                raise TypeError("Got an unexpected keyword argument '%s' to method create_funding_sources_token_for_customer" % key)
             params[key] = val
         del params['kwargs']
 
-        resource_path = '/customers/{id}/verification-token'.replace('{format}', 'json')
-        method = 'GET'
+        resource_path = '/customers/{id}/funding-sources-token'.replace('{format}', 'json')
+        method = 'POST'
 
         path_params = {}
         
@@ -417,7 +417,62 @@ class CustomersApi(object):
 
         response = self.api_client.call_api(resource_path, method, path_params, query_params, header_params,
                                             body=body_params, post_params=form_params, files=files,
-                                            response='VerificationToken', auth_settings=self.auth_settings)
+                                            response='CustomerOAuthToken', auth_settings=self.auth_settings)
+        
+        return response
+        
+    def get_customer_iav_token(self, id, **kwargs):
+        """
+        Get iav token for customer.
+        
+
+        :param str id: ID of customer. (required)
+        
+        :return: IavToken
+        """
+        
+        # verify the required parameter 'id' is set
+        if id is None:
+            raise ValueError("Missing the required parameter `id` when calling `get_customer_iav_token`")
+        
+        all_params = ['id']
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError("Got an unexpected keyword argument '%s' to method get_customer_iav_token" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resource_path = '/customers/{id}/iav-token'.replace('{format}', 'json')
+        method = 'POST'
+
+        path_params = {}
+        
+        if 'id' in params:
+            path_params['id'] = params['id']  
+        
+        query_params = {}
+        
+        header_params = {}
+        
+        form_params = {}
+        files = {}
+        
+        body_params = None
+        
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(['application/vnd.dwolla.v1.hal+json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type([])
+
+
+        response = self.api_client.call_api(resource_path, method, path_params, query_params, header_params,
+                                            body=body_params, post_params=form_params, files=files,
+                                            response='IavToken', auth_settings=self.auth_settings)
         
         return response
         

@@ -276,6 +276,61 @@ class TransfersApi(object):
         
         return response
         
+    def failure_by_id(self, id, **kwargs):
+        """
+        Get a bank transfer failure by transfer id.
+        
+
+        :param str id: ID of failed bank transfer to get. (required)
+        
+        :return: Transfer
+        """
+        
+        # verify the required parameter 'id' is set
+        if id is None:
+            raise ValueError("Missing the required parameter `id` when calling `failure_by_id`")
+        
+        all_params = ['id']
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError("Got an unexpected keyword argument '%s' to method failure_by_id" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resource_path = '/transfers/{id}/failure'.replace('{format}', 'json')
+        method = 'GET'
+
+        path_params = {}
+        
+        if 'id' in params:
+            path_params['id'] = params['id']  
+        
+        query_params = {}
+        
+        header_params = {}
+        
+        form_params = {}
+        files = {}
+        
+        body_params = None
+        
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(['application/vnd.dwolla.v1.hal+json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type([])
+
+
+        response = self.api_client.call_api(resource_path, method, path_params, query_params, header_params,
+                                            body=body_params, post_params=form_params, files=files,
+                                            response='Transfer', auth_settings=self.auth_settings)
+        
+        return response
+        
 
 
 
