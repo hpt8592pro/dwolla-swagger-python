@@ -35,7 +35,7 @@ class Document(object):
             'id': 'str',
             'status': 'str',
             'type': 'str',
-            'created': 'DateTime',
+            'created': 'datetime',
             '_embedded': 'dict'
         }
 
@@ -61,7 +61,7 @@ class Document(object):
         self.type = None  # str
         
         
-        self.created = None  # DateTime
+        self.created = None  # datetime
         
         
         self._embedded = None  # dict

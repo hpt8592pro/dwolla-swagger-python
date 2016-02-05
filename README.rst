@@ -7,7 +7,7 @@ swagger-codegen <https://github.com/mach-kernel/swagger-codegen>`__.
 Version
 -------
 
-1.0.5
+1.0.6
 
 Installation
 ------------
@@ -210,6 +210,8 @@ files updated.
 
 Changelog
 ---------
+
+1.0.6 \* Patch datetime issue in Models.
 
 1.0.5 \* API schema error fixed, ``FundingSource`` object now has
 ``_embedded`` key to fix serialization issues.

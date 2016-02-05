@@ -34,7 +34,7 @@ class WebhookRetry(object):
             '_links': 'dict(String, HalLink)',
             '_embedded': 'dict',
             'id': 'str',
-            'timestamp': 'DateTime'
+            'timestamp': 'datetime'
         }
 
         self.attribute_map = {
@@ -54,7 +54,7 @@ class WebhookRetry(object):
         self.id = None  # str
         
         
-        self.timestamp = None  # DateTime
+        self.timestamp = None  # datetime
         
 
     def __repr__(self):

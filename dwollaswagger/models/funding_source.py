@@ -37,7 +37,7 @@ class FundingSource(object):
             'status': 'str',
             'type': 'str',
             'name': 'str',
-            'created': 'DateTime',
+            'created': 'datetime',
             'balance': 'dict'
         }
 
@@ -71,7 +71,7 @@ class FundingSource(object):
         self.name = None  # str
         
         
-        self.created = None  # DateTime
+        self.created = None  # datetime
         
         
         self.balance = None  # dict

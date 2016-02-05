@@ -34,7 +34,7 @@ class ApplicationEvent(object):
             '_links': 'dict(String, HalLink)',
             '_embedded': 'dict',
             'id': 'str',
-            'created': 'DateTime',
+            'created': 'datetime',
             'topic': 'str',
             'resource_id': 'str'
         }
@@ -58,7 +58,7 @@ class ApplicationEvent(object):
         self.id = None  # str
         
         
-        self.created = None  # DateTime
+        self.created = None  # datetime
         
         
         self.topic = None  # str

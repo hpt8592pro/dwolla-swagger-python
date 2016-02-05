@@ -35,7 +35,7 @@ class WebhookSubscription(object):
             '_embedded': 'dict',
             'id': 'str',
             'url': 'str',
-            'created': 'DateTime'
+            'created': 'datetime'
         }
 
         self.attribute_map = {
@@ -59,7 +59,7 @@ class WebhookSubscription(object):
         self.url = None  # str
         
         
-        self.created = None  # DateTime
+        self.created = None  # datetime
         
 
     def __repr__(self):

@@ -31,7 +31,7 @@ class WebhookHttpResponse(object):
         :param dict attributeMap: The key is attribute name and the value is json key in definition.
         """
         self.swagger_types = {
-            'timestamp': 'DateTime',
+            'timestamp': 'datetime',
             'headers': 'list[WebhookHeader]',
             'status_code': 'int',
             'body': 'str'
@@ -45,7 +45,7 @@ class WebhookHttpResponse(object):
         }
         
         
-        self.timestamp = None  # DateTime
+        self.timestamp = None  # datetime
         
         
         self.headers = None  # list[WebhookHeader]

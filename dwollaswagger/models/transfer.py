@@ -36,7 +36,7 @@ class Transfer(object):
             'id': 'str',
             'status': 'str',
             'amount': 'Money',
-            'created': 'DateTime',
+            'created': 'datetime',
             'metadata': 'dict'
         }
 
@@ -66,7 +66,7 @@ class Transfer(object):
         self.amount = None  # Money
         
         
-        self.created = None  # DateTime
+        self.created = None  # datetime
         
         
         self.metadata = None  # dict
