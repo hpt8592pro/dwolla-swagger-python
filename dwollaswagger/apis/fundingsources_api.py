@@ -49,7 +49,7 @@ class FundingsourcesApi(object):
         Get an account's funding sources.
         
 
-        :param str id: Account UUID to get funding sources for. (required)
+        :param str id: Account id to get funding sources for. (required)
         
         :return: FundingSourceListResponse
         """
@@ -104,7 +104,7 @@ class FundingsourcesApi(object):
         Get a customer's funding sources.
         
 
-        :param str id: Customer UUID to get funding sources for. (required)
+        :param str id: Customer id to get funding sources for. (required)
         
         :return: FundingSourceListResponse
         """
@@ -160,7 +160,7 @@ class FundingsourcesApi(object):
         
 
         :param CreateFundingSourceRequest body: Funding source to create. 
-        :param str id: Customer UUID to create funding source for. (required)
+        :param str id: Customer id to create funding source for. (required)
         
         :return: FundingSource
         """
@@ -381,7 +381,7 @@ class FundingsourcesApi(object):
 
         :param str id: Funding source ID to check for pending validation deposits for. (required)
         
-        :return: None
+        :return: MicroDeposits
         """
         
         # verify the required parameter 'id' is set
@@ -425,7 +425,9 @@ class FundingsourcesApi(object):
 
         response = self.api_client.call_api(resource_path, method, path_params, query_params, header_params,
                                             body=body_params, post_params=form_params, files=files,
-                                            response=None, auth_settings=self.auth_settings)
+                                            response='MicroDeposits', auth_settings=self.auth_settings)
+        
+        return response
         
     def micro_deposits(self, id, **kwargs):
         """
@@ -435,7 +437,7 @@ class FundingsourcesApi(object):
         :param VerifyMicroDepositsRequest body: Optional micro deposit amounts for verification 
         :param str id: Funding source ID to initiate or verify micro deposits for. (required)
         
-        :return: None
+        :return: MicroDeposits
         """
         
         # verify the required parameter 'id' is set
@@ -482,7 +484,9 @@ class FundingsourcesApi(object):
 
         response = self.api_client.call_api(resource_path, method, path_params, query_params, header_params,
                                             body=body_params, post_params=form_params, files=files,
-                                            response=None, auth_settings=self.auth_settings)
+                                            response='MicroDeposits', auth_settings=self.auth_settings)
+        
+        return response
         
 
 

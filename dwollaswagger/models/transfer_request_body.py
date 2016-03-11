@@ -33,13 +33,15 @@ class TransferRequestBody(object):
         self.swagger_types = {
             '_links': 'dict(String, HalLink)',
             'amount': 'Amount',
-            'metadata': 'dict'
+            'metadata': 'dict',
+            'fees': 'list[FacilitatorFeeRequest]'
         }
 
         self.attribute_map = {
             '_links': '_links',
             'amount': 'amount',
-            'metadata': 'metadata'
+            'metadata': 'metadata',
+            'fees': 'fees'
         }
         
         
@@ -50,6 +52,9 @@ class TransferRequestBody(object):
         
         
         self.metadata = None  # dict
+        
+        
+        self.fees = None  # list[FacilitatorFeeRequest]
         
 
     def __repr__(self):

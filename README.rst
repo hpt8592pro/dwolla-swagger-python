@@ -7,7 +7,7 @@ swagger-codegen <https://github.com/mach-kernel/swagger-codegen>`__.
 Version
 -------
 
-1.0.6
+1.0.7
 
 Installation
 ------------
@@ -210,6 +210,12 @@ files updated.
 
 Changelog
 ---------
+
+1.0.7 \* API schema updated, ``TransfersApi`` has new endpoints for
+cancel a transfer and get a transfer’s fees, new
+``OndemandauthorizationsApi``. \* Existing ``MicroDeposits`` and
+``Documents`` models updated, new ``FacilitatorFeeRequest``,
+``Authorization``, and ``UpdateTransfer`` models.
 
 1.0.6 \* Patch datetime issue in Models.
 

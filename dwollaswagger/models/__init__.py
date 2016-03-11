@@ -2,22 +2,25 @@ from __future__ import absolute_import
 
 # import models into model package
 from .create_webhook import CreateWebhook
-from .event_list_response import EventListResponse
 from .document_list_response import DocumentListResponse
-from .customer import Customer
+from .event_list_response import EventListResponse
 from .funding_source_list_response import FundingSourceListResponse
+from .customer import Customer
 from .customer_list_response import CustomerListResponse
 from .catalog_response import CatalogResponse
+from .update_transfer import UpdateTransfer
 from .transfer_list_response import TransferListResponse
 from .document import Document
 from .o_auth_response import OAuthResponse
+from .authorization import Authorization
 from .webhook_http_response import WebhookHttpResponse
 from .hal_link import HalLink
 from .money import Money
 from .transfer_request_body import TransferRequestBody
 from .webhook_retry import WebhookRetry
-from .account_o_auth_token import AccountOAuthToken
+from .facilitator_fee_request import FacilitatorFeeRequest
 from .customer_o_auth_token import CustomerOAuthToken
+from .account_o_auth_token import AccountOAuthToken
 from .webhook_retry_request_list_response import WebhookRetryRequestListResponse
 from .webhook_list_response import WebhookListResponse
 from .account_info import AccountInfo
@@ -31,12 +34,14 @@ from .amount import Amount
 from .application_event import ApplicationEvent
 from .business_classification_list_response import BusinessClassificationListResponse
 from .webhook_event_list_response import WebhookEventListResponse
+from .micro_deposits import MicroDeposits
 from .verify_micro_deposits_request import VerifyMicroDepositsRequest
 from .business_classification import BusinessClassification
 from .transfer import Transfer
-from .webhook import Webhook
 from .iav_token import IavToken
+from .webhook import Webhook
 from .funding_source import FundingSource
+from .id import Id
 from .create_funding_source_request import CreateFundingSourceRequest
 from .create_customer import CreateCustomer
 

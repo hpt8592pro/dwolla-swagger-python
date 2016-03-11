@@ -31,18 +31,27 @@ class CreateFundingSourceRequest(object):
         :param dict attributeMap: The key is attribute name and the value is json key in definition.
         """
         self.swagger_types = {
+            '_links': 'dict',
             'routing_number': 'str',
             'account_number': 'str',
             'type': 'str',
-            'name': 'str'
+            'name': 'str',
+            'routing_number_length': 'int',
+            'account_number_min_length': 'int'
         }
 
         self.attribute_map = {
+            '_links': '_links',
             'routing_number': 'routingNumber',
             'account_number': 'accountNumber',
             'type': 'type',
-            'name': 'name'
+            'name': 'name',
+            'routing_number_length': 'RoutingNumberLength',
+            'account_number_min_length': 'AccountNumberMinLength'
         }
+        
+        
+        self._links = None  # dict
         
         
         self.routing_number = None  # str
@@ -55,6 +64,12 @@ class CreateFundingSourceRequest(object):
         
         
         self.name = None  # str
+        
+        
+        self.routing_number_length = None  # int
+        
+        
+        self.account_number_min_length = None  # int
         
 
     def __repr__(self):

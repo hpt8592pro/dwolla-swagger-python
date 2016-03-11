@@ -49,7 +49,7 @@ class TransfersApi(object):
         Get an account's transfers.
         
 
-        :param str id: Account UUID to get transfers for. (required)
+        :param str id: Account id to get transfers for. (required)
         :param int limit: How many results to return. 
         :param int offset: How many results to skip. 
         
@@ -112,7 +112,7 @@ class TransfersApi(object):
         Get a customer's transfers.
         
 
-        :param str id: Customer UUID to get transfers for. (required)
+        :param str id: Customer id to get transfers for. (required)
         :param int limit: How many results to return. 
         :param int offset: How many results to skip. 
         
@@ -276,6 +276,65 @@ class TransfersApi(object):
         
         return response
         
+    def update(self, id, **kwargs):
+        """
+        Update a transfer.
+        
+
+        :param UpdateTransfer body: Transfer to update. 
+        :param str id: ID of transfer to get. (required)
+        
+        :return: Transfer
+        """
+        
+        # verify the required parameter 'id' is set
+        if id is None:
+            raise ValueError("Missing the required parameter `id` when calling `update`")
+        
+        all_params = ['body', 'id']
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError("Got an unexpected keyword argument '%s' to method update" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resource_path = '/transfers/{id}'.replace('{format}', 'json')
+        method = 'POST'
+
+        path_params = {}
+        
+        if 'id' in params:
+            path_params['id'] = params['id']  
+        
+        query_params = {}
+        
+        header_params = {}
+        
+        form_params = {}
+        files = {}
+        
+        body_params = None
+        
+        if 'body' in params:
+            body_params = params['body']
+        
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(['application/vnd.dwolla.v1.hal+json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(['application/vnd.dwolla.v1.hal+json'])
+
+
+        response = self.api_client.call_api(resource_path, method, path_params, query_params, header_params,
+                                            body=body_params, post_params=form_params, files=files,
+                                            response='Transfer', auth_settings=self.auth_settings)
+        
+        return response
+        
     def failure_by_id(self, id, **kwargs):
         """
         Get a bank transfer failure by transfer id.
@@ -328,6 +387,61 @@ class TransfersApi(object):
         response = self.api_client.call_api(resource_path, method, path_params, query_params, header_params,
                                             body=body_params, post_params=form_params, files=files,
                                             response='Transfer', auth_settings=self.auth_settings)
+        
+        return response
+        
+    def get_fees_by_source(self, id, **kwargs):
+        """
+        Get a transfer's fees.
+        
+
+        :param str id: Transfer id to get fees for. (required)
+        
+        :return: TransferListResponse
+        """
+        
+        # verify the required parameter 'id' is set
+        if id is None:
+            raise ValueError("Missing the required parameter `id` when calling `get_fees_by_source`")
+        
+        all_params = ['id']
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError("Got an unexpected keyword argument '%s' to method get_fees_by_source" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resource_path = '/transfers/{id}/fees'.replace('{format}', 'json')
+        method = 'GET'
+
+        path_params = {}
+        
+        if 'id' in params:
+            path_params['id'] = params['id']  
+        
+        query_params = {}
+        
+        header_params = {}
+        
+        form_params = {}
+        files = {}
+        
+        body_params = None
+        
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(['application/vnd.dwolla.v1.hal+json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(['application/vnd.dwolla.v1.hal+json'])
+
+
+        response = self.api_client.call_api(resource_path, method, path_params, query_params, header_params,
+                                            body=body_params, post_params=form_params, files=files,
+                                            response='TransferListResponse', auth_settings=self.auth_settings)
         
         return response
         
