@@ -7,7 +7,7 @@ swagger-codegen <https://github.com/mach-kernel/swagger-codegen>`__.
 Version
 -------
 
-1.0.7
+1.0.8
 
 Installation
 ------------
@@ -210,6 +210,10 @@ files updated.
 
 Changelog
 ---------
+
+1.0.8 \* API schema updated, new ``MasspaymentsApi`` and
+``MasspaymentitemsApi``. New ``MassPayment`` and ``MassPaymentItem``
+models.
 
 1.0.7 \* API schema updated, ``TransfersApi`` has new endpoints for
 cancel a transfer and get a transfer’s fees, new
