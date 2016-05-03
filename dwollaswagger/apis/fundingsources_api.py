@@ -319,6 +319,65 @@ class FundingsourcesApi(object):
         
         return response
         
+    def soft_delete(self, id, **kwargs):
+        """
+        Remove a funding source.
+        
+
+        :param RemoveBankRequest body: request body to remove a funding source 
+        :param str id: Funding source ID to remove. (required)
+        
+        :return: Unit
+        """
+        
+        # verify the required parameter 'id' is set
+        if id is None:
+            raise ValueError("Missing the required parameter `id` when calling `soft_delete`")
+        
+        all_params = ['body', 'id']
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError("Got an unexpected keyword argument '%s' to method soft_delete" % key)
+            params[key] = val
+        del params['kwargs']
+
+        resource_path = '/funding-sources/{id}'.replace('{format}', 'json')
+        method = 'POST'
+
+        path_params = {}
+        
+        if 'id' in params:
+            path_params['id'] = params['id']  
+        
+        query_params = {}
+        
+        header_params = {}
+        
+        form_params = {}
+        files = {}
+        
+        body_params = None
+        
+        if 'body' in params:
+            body_params = params['body']
+        
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(['application/vnd.dwolla.v1.hal+json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type([])
+
+
+        response = self.api_client.call_api(resource_path, method, path_params, query_params, header_params,
+                                            body=body_params, post_params=form_params, files=files,
+                                            response='Unit', auth_settings=self.auth_settings)
+        
+        return response
+        
     def delete(self, id, **kwargs):
         """
         Delete a funding source by id.

@@ -51,11 +51,12 @@ class CustomersApi(object):
 
         :param int limit: How many results to return. 
         :param int offset: How many results to skip. 
+        :param str search: Search term. 
         
         :return: CustomerListResponse
         """
         
-        all_params = ['limit', 'offset']
+        all_params = ['limit', 'offset', 'search']
 
         params = locals()
         for key, val in iteritems(params['kwargs']):
@@ -76,6 +77,9 @@ class CustomersApi(object):
         
         if 'offset' in params:
             query_params['offset'] = params['offset']
+        
+        if 'search' in params:
+            query_params['search'] = params['search']
         
         header_params = {}
         

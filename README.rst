@@ -7,7 +7,7 @@ swagger-codegen <https://github.com/mach-kernel/swagger-codegen>`__.
 Version
 -------
 
-1.0.8
+1.0.9
 
 Installation
 ------------
@@ -210,6 +210,9 @@ files updated.
 
 Changelog
 ---------
+
+1.0.9 \* API schema updated, ``CustomersAPI`` supports Customer search,
+new softDelete method in ``FundingSourcesApi``.
 
 1.0.8 \* API schema updated, new ``MasspaymentsApi`` and
 ``MasspaymentitemsApi``. New ``MassPayment`` and ``MassPaymentItem``
